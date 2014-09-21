@@ -67,10 +67,15 @@ while True:
 	GPIO.output(8, GPIO.HIGH)
 	GPIO.output(23, GPIO.HIGH)
 	time.sleep(4)
-	# Turn on the Yellow LED pinout 5 & 24
+	# Turn off green LEDs pinout 8 & 23
+	GPIO.output(8, GPIO.LOW)
+ 	GPIO.output(23, GPIO.LOW)
+	# Turn on the Yellow LED pinout 5, 10, 21 & 24
 	# Yellow light on with Red
  	GPIO.output(5, GPIO.HIGH)
 	GPIO.output(24, GPIO.HIGH)
+ 	GPIO.output(10, GPIO.HIGH)
+	GPIO.output(21, GPIO.HIGH)
 	time.sleep(2)
 	# Turn off the Yellow LED pinout 5 & 24
 	# Red and Yellow lights off
