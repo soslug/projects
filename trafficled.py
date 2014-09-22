@@ -75,10 +75,6 @@ while True:
 	# Turn off the Green LED pinout 7 & 22
 	for i in pattern6:
 		GPIO.output(i, GPIO.LOW)
-		
-	# Turn off the Green LED pinout 7 & 22
-	for i in pattern3:
-		GPIO.output(i, GPIO.LOW)
 
 	# Pattern3
 	# Turn on the Yellow LED pinout 5 & 24
