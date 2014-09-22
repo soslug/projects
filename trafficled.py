@@ -14,9 +14,9 @@ def set_gpio():
 	GPIO.setmode(GPIO.BOARD)
 
 # Initialise set_gpio function
-
 set_gpio()
 
+# Setup the array to work with patterns
 from array import *
 gpio_array = array('i',[3,5,7,8,10,12,19,21,22,23,24,26])
 pattern1 = array('i',[3,8,23,26])
@@ -27,13 +27,15 @@ pattern5 = array('i',[7,12,19,22])
 pattern6 = array('i',[7,22])
 pattern7 = array('i',[5,10,12,19,21,24])
  
-
+# Initialise and reset GPIO pins sleep for 8 seconds before start sequence
 for i in gpio_array:
+	# This has the effect of turning off all GPIO pins we are using
 	GPIO.setup(i, GPIO.OUT)
 	GPIO.output(i, GPIO.LOW)
 
 time.sleep(8)
 
+# Start Traffic Light sequence as determined by above array patterns
 while True:
 	# Pattern1	
 	# Turn on the Red LED pinout 3 & 26
