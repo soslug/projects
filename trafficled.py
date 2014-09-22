@@ -15,7 +15,6 @@ def set_gpio():
 
 # Initialise set_gpio function
 
-<<<<<<< HEAD
 set_gpio()
 
 from array import *
@@ -32,40 +31,8 @@ pattern7 = array('i',[5,10,12,19,21,24])
 for i in gpio_array:
 	GPIO.setup(i, GPIO.OUT)
 	GPIO.output(i, GPIO.LOW)
-=======
-# Pinout Set$2
-GPIO.setup(8, GPIO.OUT)
-GPIO.setup(10, GPIO.OUT)
-GPIO.setup(12, GPIO.OUT)
-
-# Pinout Set$3
-GPIO.setup(19, GPIO.OUT)
-GPIO.setup(21, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
-
-# Pinout Set$4
-GPIO.setup(22, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
-GPIO.setup(26, GPIO.OUT)
->>>>>>> 2ebb4ec0b265eb020d4adc84e6678e60168b3345
 
 time.sleep(8)
-
-#Initialise all header ouputs to zero
-
-GPIO.output(3, GPIO.LOW)
-GPIO.output(5, GPIO.LOW)
-GPIO.output(7, GPIO.LOW)
-GPIO.output(8, GPIO.LOW)
-GPIO.output(10, GPIO.LOW)
-GPIO.output(12, GPIO.LOW)
-GPIO.output(19, GPIO.LOW)
-GPIO.output(21, GPIO.LOW)
-GPIO.output(22, GPIO.LOW)
-GPIO.output(23, GPIO.LOW)
-GPIO.output(24, GPIO.LOW)
-GPIO.output(26, GPIO.LOW)
-sleep.time(8)
 
 while True:
 	# Pattern1	
