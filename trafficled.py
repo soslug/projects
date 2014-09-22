@@ -1,60 +1,29 @@
 #!/usr/bin/python
 # TrafficLED by Derek Shaw
-# Specifically for RPi B+
+# Specifically for RPi B+ but should work on other Pis
 
 import time
 import RPi.GPIO as GPIO
 
-GPIO.setwarnings(False)
-GPIO.cleanup()
-GPIO.setmode(GPIO.BOARD)
+def set_gpio():
+	# Prepare GPIO library to use Raspberry Pi
+	# Board Pinouts
 
-# Prepare GPIO library to use Raspberry Pi
-# Board Pinouts
+	GPIO.setwarnings(False)
+	GPIO.cleanup()
+	GPIO.setmode(GPIO.BOARD)
 
-# Pinout Set$1
-GPIO.setup(3, GPIO.OUT)
-GPIO.setup(5, GPIO.OUT)
-GPIO.setup(7, GPIO.OUT)
+# Initialise set_gpio function
 
-# Pinout Set$2
-GPIO.setup(8, GPIO.OUT)
-GPIO.setup(10, GPIO.OUT)
-GPIO.setup(12, GPIO.OUT)
+set_gpio()
 
-# Pinout Set$3
-GPIO.setup(19, GPIO.OUT)
-GPIO.setup(21, GPIO.OUT)
-GPIO.setup(23, GPIO.OUT)
+from array import *
+gpio_array = array('i',[3,5,7,8,10,12,19,21,22,23,24,26])
 
-# Pinout Set$4
-GPIO.setup(22, GPIO.OUT)
-GPIO.setup(24, GPIO.OUT)
-GPIO.setup(26, GPIO.OUT)
+for i in gpio_array:
+	GPIO.setup(i, GPIO.OUT)
+	GPIO.output(i, GPIO.LOW)
 
-# Pinout Set$5
-#GPIO.setup(33, GPIO.OUT)
-#GPIO.setup(35, GPIO.OUT)
-#GPIO.setup(37, GPIO.OUT)
-
-# Pinout Set$6
-#GPIO.setup(36, GPIO.OUT)
-#GPIO.setup(38, GPIO.OUT)
-#GPIO.setup(40, GPIO.OUT)
-
-#Turn off all GPIO outputs
-GPIO.output(3, GPIO.LOW)
-GPIO.output(5, GPIO.LOW)
-GPIO.output(7, GPIO.LOW)
-GPIO.output(8, GPIO.LOW)
-GPIO.output(10, GPIO.LOW)
-GPIO.output(12, GPIO.LOW)
-GPIO.output(19, GPIO.LOW)
-GPIO.output(21, GPIO.LOW)
-GPIO.output(23, GPIO.LOW)
-GPIO.output(22, GPIO.LOW)
-GPIO.output(24, GPIO.LOW)
-GPIO.output(26, GPIO.LOW)
 time.sleep(8)
 
 while True:
@@ -67,19 +36,21 @@ while True:
 	GPIO.output(8, GPIO.HIGH)
 	GPIO.output(23, GPIO.HIGH)
 	time.sleep(4)
-	# Turn off green LEDs pinout 8 & 23
+	# Turn off Green LEDs pinout 8 & 23
 	GPIO.output(8, GPIO.LOW)
- 	GPIO.output(23, GPIO.LOW)
+	GPIO.output(23, GPIO.LOW)
 	# Turn on the Yellow LED pinout 5, 10, 21 & 24
 	# Yellow light on with Red
  	GPIO.output(5, GPIO.HIGH)
-	GPIO.output(24, GPIO.HIGH)
  	GPIO.output(10, GPIO.HIGH)
-	GPIO.output(21, GPIO.HIGH)
+ 	GPIO.output(21, GPIO.HIGH)
+	GPIO.output(24, GPIO.HIGH)
 	time.sleep(2)
-	# Turn off the Yellow LED pinout 5 & 24
+	# Turn off the Yellow LED pinout 5, 10, 21 & 24
 	# Red and Yellow lights off
 	GPIO.output(5, GPIO.LOW)
+	GPIO.output(10, GPIO.LOW)
+	GPIO.output(21, GPIO.LOW)
  	GPIO.output(24, GPIO.LOW)
 	# Turn off the Red LED pinout 3 & 26
 	GPIO.output(3, GPIO.LOW)
