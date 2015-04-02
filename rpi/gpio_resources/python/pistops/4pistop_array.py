@@ -2,6 +2,11 @@
 # TrafficLED by Derek Shaw
 # Specifically for RPi B+ but should work on other Pis
 
+# Dependencies for Archlinux perhaps others
+# pacman -Syu python-pip
+# pip install RPi.GPIO
+# works on python2 & python3
+
 import time
 import RPi.GPIO as GPIO
 
